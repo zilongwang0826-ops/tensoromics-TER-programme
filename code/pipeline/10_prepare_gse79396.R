@@ -7,7 +7,12 @@ suppressPackageStartupMessages({
 })
 
 base_dir <- Sys.getenv("TER_ROOT", getwd())
-src_series <- "C:/Users/31608/Documents/data_GSE79396/GSE79396_series_matrix.txt.gz"
+src_series <- Sys.getenv("GSE79396_SERIES_MATRIX",
+                         file.path(base_dir, "data/GSE79396/GSE79396_series_matrix.txt.gz"))
+if (!file.exists(src_series)) {
+  stop("GSE79396 series matrix not found: ", src_series,
+       "\nSet GSE79396_SERIES_MATRIX or place the file under data/GSE79396/.")
+}
 src_annot  <- file.path(base_dir, "data/GPL13158/GPL13158.annot.gz")
 out_dir    <- file.path(base_dir, "data/GSE79396")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
@@ -99,7 +104,8 @@ fwrite(samples, file.path(out_dir, "samples_all.csv"))
 fwrite(ann_clean, file.path(base_dir, "data/GPL13158/annot_clean.csv"))
 
 ## ---- 4. compare with v1 sample set ------------------------------------------
-v1_path <- "C:/Users/31608/Documents/results_GSE79396_tPCA/tables/sample_metadata_complete.csv"
+v1_path <- Sys.getenv("TER_V1_METADATA",
+                      file.path(base_dir, "data/v1_tables/sample_metadata_complete.csv"))
 if (file.exists(v1_path)) {
   v1 <- fread(v1_path)
   cat("\n--- v1 metadata comparison ---\n")

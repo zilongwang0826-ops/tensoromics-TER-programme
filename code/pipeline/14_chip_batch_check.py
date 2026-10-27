@@ -10,11 +10,14 @@ gsms = None
 ROOT = Path(os.environ.get("TER_ROOT", os.getcwd()))
 SERIES = Path(os.environ.get("GSE79396_SERIES_MATRIX",
                              str(ROOT / "data" / "GSE79396" / "GSE79396_series_matrix.txt.gz")))
-LEGACY = Path(r"C:\Users\31608\Documents\data_GSE79396\GSE79396_series_matrix.txt.gz")
-SERIES_USE = SERIES if SERIES.exists() else LEGACY
-print(f"[14] series matrix: {SERIES_USE} ({'project' if SERIES_USE == SERIES else 'legacy-external'})")
+if not SERIES.exists():
+    raise SystemExit(
+        f"[14] series matrix not found: {SERIES}\n"
+        "Set GSE79396_SERIES_MATRIX or place the file under data/GSE79396/."
+    )
+print(f"[14] series matrix: {SERIES}")
 
-with gzip.open(SERIES_USE, "rt",
+with gzip.open(SERIES, "rt",
                encoding="utf-8", errors="replace") as f:
     for line in f:
         if line.startswith("!Sample_geo_accession"):

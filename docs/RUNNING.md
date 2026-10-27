@@ -9,6 +9,15 @@ setx TER_ROOT C:\path\to\repo          # Windows PowerShell
 
 (If unset, scripts fall back to the current working directory — run from the repo root.)
 
+Optional path overrides:
+
+- `GSE79396_SERIES_MATRIX` - GSE79396 series matrix; defaults to
+  `data/GSE79396/GSE79396_series_matrix.txt.gz`.
+- `TER_V1_DIR` - directory with the v1 result tables (`matrix_pca_scores.csv`,
+  `tensor_pca_scores.csv`, `top_loadings_pc*.csv`); required only by `11_reproduce_v1.R`.
+- `TER_V1_METADATA` - optional v1 sample metadata for the comparison block in
+  `10_prepare_gse79396.R`; defaults to `data/v1_tables/sample_metadata_complete.csv`.
+
 ## Fish pipeline (Python) — `code/fish_pipeline/`
 
 | Step | Script | Input | Output |

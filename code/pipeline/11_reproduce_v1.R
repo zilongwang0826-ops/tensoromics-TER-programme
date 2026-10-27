@@ -8,7 +8,11 @@ suppressPackageStartupMessages({
 })
 
 base_dir <- Sys.getenv("TER_ROOT", getwd())
-v1_dir <- "C:/Users/31608/Documents/results_GSE79396_tPCA/tables"
+v1_dir <- Sys.getenv("TER_V1_DIR", file.path(base_dir, "data/v1_tables"))
+if (!dir.exists(v1_dir)) {
+  stop("v1 result tables not found: ", v1_dir,
+       "\nSet TER_V1_DIR to the directory containing matrix_pca_scores.csv etc.")
+}
 dat <- readRDS(file.path(base_dir, "data/GSE79396/vaccine_data.rds"))
 expr <- dat$expr          # probes x samples (log2 RMA)
 samples <- dat$samples

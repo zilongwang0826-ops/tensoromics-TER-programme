@@ -15,7 +15,11 @@ set.seed(2027)
 
 # chip from CEL filename
 series_matrix <- Sys.getenv("GSE79396_SERIES_MATRIX",
-                            "C:/Users/31608/Documents/data_GSE79396/GSE79396_series_matrix.txt.gz")
+                            file.path(base_dir, "data/GSE79396/GSE79396_series_matrix.txt.gz"))
+if (!file.exists(series_matrix)) {
+  stop("GSE79396 series matrix not found: ", series_matrix,
+       "\nSet GSE79396_SERIES_MATRIX or place the file under data/GSE79396/.")
+}
 supp_lines <- readLines(gzfile(series_matrix), n = 200)
 supp_files <- supp_lines[startsWith(supp_lines, "!Sample_supplementary_file")]
 geo_files <- supp_lines[startsWith(supp_lines, "!Sample_geo_accession")]
