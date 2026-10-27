@@ -1,0 +1,32 @@
+NOTICE — third-party components, attributions, and scope of this release
+
+1. tensorOmics (R package)
+   Author: Brendan Lu. License: AGPL-3.0-or-later. Repository:
+   https://github.com/brendanlu/tensorOmics (snapshot pinned at commit 61afa63).
+   Usage here: installed as an R dependency and called from our scripts
+   (tPCA / tPLS / tPLS-DA / block.tPLS, DCT-based tubal transforms).
+   The package source is NOT included in this repository.
+   Two unused files present in the original working directory
+   (_tpls_source.R, _tplsda_source.R) were verbatim deparse copies of upstream
+   functions; they have been EXCLUDED from this release. Their provenance is
+   documented in the project's private audit trail.
+
+2. Other R/Bioconductor dependencies (each under its own license; not vendored):
+   mixOmics, MASS, data.table, lme4, lmerTest, sva, PLSDAbatch, ggplot2, patchwork.
+
+3. Python dependencies (each under its own license; not vendored):
+   numpy, pandas, scipy, scikit-learn.
+
+4. Data
+   - GSE150318 (killifish fin transcriptomics) and GSE79396 (human PBMC vaccine
+     response): public GEO datasets; redistribution is not performed here.
+   - Li et al. (2017) supplement (metabolomics and immune readouts): used under its
+     own terms; not redistributed here.
+   - Acquisition instructions: data/README.md; expected checksums: data/CHECKSUMS.sha256.
+
+5. AI assistance
+   Code was developed with AI assistance under the author's direction; see
+   docs/AI_DISCLOSURE.md. Scientific decisions and verification: the author.
+
+6. Publication status
+   This is a release candidate. No claims are made about clinical or predictive use.

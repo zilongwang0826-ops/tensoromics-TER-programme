@@ -1,0 +1,6 @@
+﻿"step","status","seconds"
+"g01","EXIT_","3,3"
+"g06","EXIT_","3"
+"g08b","EXIT_","277"
+"g08c","EXIT_","306"
+"gfig41","EXIT_","4,4"

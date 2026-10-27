@@ -1,0 +1,31 @@
+{
+  "path_rewrite": {
+    "fwd": 42,
+    "bck": 4,
+    "files": 28
+  },
+  "overlay_fixes": [
+    "21c_vaccine_chip_batch.R",
+    "30b_multiblock_corrected_align.R",
+    "07c_fish_tplsda_loo.R",
+    "97_prep_checks.R",
+    "98_test_vaccine_pred.R",
+    "99_test_predict.R",
+    "14_chip_batch_check.py",
+    "lib_p2a_helpers.R"
+  ],
+  "figure_scripts": [
+    "40_vaccine_figures.R",
+    "41_fish_figures.R"
+  ],
+  "patch20_A": 1,
+  "patch20_B": 1,
+  "patch20_C": 1,
+  "patch30_metab_audit": 1,
+  "extras": [
+    "07d_fish_foldsafe.R",
+    "foldsafe_stage_loso.py",
+    "21b2_comps_full.R",
+    "25_fdr_corrections.R"
+  ]
+}

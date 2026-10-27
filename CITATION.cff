@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the report and the tensorOmics preprint."
+title: "TER: Tensor reanalysis and validation of two longitudinal omics datasets"
+authors:
+  - family-names: "TER project"
+    given-names: "contributors"
+type: software
+license: MIT

@@ -1,15 +1,35 @@
+# --- data (never commit raw or large derived data) ---
+data/**/*.rds
+data/**/*.gz
+data/**/*.npz
+data/**/*.csv
+!data/README.md
+!data/CHECKSUMS.sha256
+!data/metadata/*.csv
+!data/metadata/*.tsv
+
+# --- analysis outputs ---
+results/
+runs/
+*.log
+*.out
+*.err
+
+# --- environments ---
+.venv/
+renv/
 .Rhistory
 .RData
 .Rproj.user/
-*.Rproj
 
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.synctex.gz
-*.toc
-
-.DS_Store
+# --- OS / editor ---
 Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# --- caches ---
+__pycache__/
+*.pyc
+*.pyo
